@@ -1,23 +1,24 @@
 package com.vish.tutoriel.threads;
 
-import java.sql.Time;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
 public class SampleThread {
 	
-	public static void main(String[] args) {
-		List<String> strList  = new ArrayList<String>();
-		strList.add("A");
-		strList.add("B");
-		strList.add("X");
-		strList.add("D");
-		System.out.println(strList.indexOf("X"));
-		System.out.print(strList.indexOf("X"));
+	public static void main(String[] args) throws InterruptedException {
+		CustomThread ct = new CustomThread();
+		CustomThread ct1 = new CustomThread();
+		MyThread t = new MyThread("asdfg");
+		
+		ct.start();
+		ct1.start();
+		t.start();
+		
+		/*ct.display();
+		ct1.display();*/
+		
+		System.out.println("I am not waiting for the threds to die...");
+		
+		System.out.println(ct.getName());
+		System.out.println(ct1.getName());
+		
 	}
 
 }

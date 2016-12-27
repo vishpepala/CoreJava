@@ -16,7 +16,7 @@ public class FileDemo {
 	}
 		
 	static void writefile() throws IOException{
-		String myText = "Hello World! Good morning!  Fita Computers.dvfssdgs sd";
+		String myText = "Hello World! Good morning!  Fita Computers.";
 		
 		FileWriter fwriter = new FileWriter(file);
 		

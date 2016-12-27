@@ -27,24 +27,21 @@ public class Demo {
 		}
 	}
 
-	void readUserMessage() throws MyException, IOException {
-		System.out.println("Hello. Please Enter your name");
+	void readUserMessage() throws Exception {
+		System.out.println("Hello. Please enter any number between 10 and 30.");
 		InputStreamReader isr = null;
 		try {
 			isr = new InputStreamReader(System.in);
 			BufferedReader br = new BufferedReader(isr);
-			String str = br.readLine();
+			Integer str = Integer.valueOf(br.readLine());
+			
 			System.out.println("hello "+ str);
-			int i = 10/0;
-		} catch (IOException excep) {
-				
-			throw new MyException("My own Exception", (long) 14526);
+			
+		} catch (Exception excep) {
+			excep.printStackTrace();
+			System.out.println("You seems to enter a wrong number.  Please try later.");
+			throw new Exception();
 		
-		} catch (NullPointerException e){
-			throw new MyException("My own null Exception", (long) 10000);
-		} catch (Exception e){
-			throw e;
-			//throw new MyException("My own null Exception", (long) 10000);
 		} finally {
 			if(isr != null) {
 				isr.close();

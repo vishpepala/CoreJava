@@ -1,14 +1,10 @@
 package com.vish.tutoriel.collections;
 
-import java.io.Externalizable;
-import java.io.IOException;
-import java.io.ObjectInput;
-import java.io.ObjectOutput;
 import java.io.Serializable;
 
 public class Employee implements Serializable {
 
-	private static final long serialVersionUID = 12456368;
+	private static final long serialVersionUID = 1425236;
 
 	private int id;
 	private String name;
@@ -18,6 +14,10 @@ public class Employee implements Serializable {
 		this.id = id;
 		this.name = name;
 		this.dept = dept;
+	}
+	
+	public Employee() {
+		
 	}
 
 	public int getId() {

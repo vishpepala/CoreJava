@@ -5,11 +5,16 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Date;
 import java.util.Random;
+import java.util.Scanner;
 
 public class DefaultConcepts {
 
 
-/*	public static void main(String args[]) throws IOException{
+	public static void main(String args[]) throws IOException{
+		Scanner sc = new Scanner(System.in);
+		//int a = sc.nextLine();
+		System.out.println(sc.nextLine());
+		
 		InputStreamReader isr = new InputStreamReader(System.in);
 		//isr.read();
 		BufferedReader br = new BufferedReader(isr);
@@ -44,9 +49,9 @@ public class DefaultConcepts {
 		
 		Random r = new Random(8522);
 	    System.out.println(10000 + r.nextInt(20000));
-	}*/
+	}
 	
-	public static void main(String[] args) {
+/*	public static void main(String[] args) {
 		String s = "Hai! Hello World, Very Good Morning";
 		char[] ch = s.toCharArray();
 		String str = "WVGHMH";
@@ -57,7 +62,7 @@ public class DefaultConcepts {
 		}
 		
 		System.out.println(str.indexOf("H", 1));
-	}
+	}*/
 
 	public static void getId(BufferedReader br) throws IOException {
 		Integer idNumber = Integer.parseInt(br.readLine());

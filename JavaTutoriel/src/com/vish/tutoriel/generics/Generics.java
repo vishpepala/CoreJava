@@ -1,33 +1,26 @@
 package com.vish.tutoriel.generics;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import com.vish.tutoriel.collections.Employee;
 
-public class Generics<T> {
+public class Generics<E> {
 
-	T obj;
+	E obj ;
 	
-	Generics(T obj){
-		this.obj = obj;
-	}
+	String a;
 	
-	T getObj(){
-		return obj;
-	}
-	
-	<T> void displayMessage(T t){
-		System.out.println(t);
+	void displayMessage(E xyz){
+		
+		System.out.println(xyz);
 	}
 	
 	public static void main(String[] args) {
-		List<String> list = new ArrayList<String>();
-		list.sort(new Comparator<String>(){
-
-			@Override
-			public int compare(String o1, String o2) {
-				return 0;
-			}});
+		Generics<int[]> genericStrings = new Generics();
+		int a[] = new int[10];
+		genericStrings.obj = a;
+		
+		Generics<Employee> genericEmp = new Generics();
+		genericEmp.obj = new Employee();
+		
 	}
 	
 	

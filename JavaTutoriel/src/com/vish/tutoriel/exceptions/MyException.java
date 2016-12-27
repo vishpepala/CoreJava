@@ -8,4 +8,9 @@ public class MyException extends Exception {
 		super(message);
 		this.code = code;
 	}
+	
+	public MyException(Throwable th, String message, Long code) {
+		super(message, th);
+		this.code = code;
+	}
 }

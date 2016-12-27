@@ -6,7 +6,7 @@ public class JavaCourse {
 	
 	private int fee;
 	
-	private String instituteName = "sagadgadf";
+	private String instituteName = "Fita Academy";
 	
 	public JavaCourse(){
 		System.out.println("Hello buddy");

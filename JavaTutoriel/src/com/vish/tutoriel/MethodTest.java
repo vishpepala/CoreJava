@@ -24,10 +24,15 @@ public class MethodTest extends UseGlobal {
 	
 	
 	public static void main(String arg[]){
-		MethodTest myObj = new MethodTest(123);
-		System.out.println(myObj.attr);
-		System.out.println(x);
-		myObj.setAttr(233);
+		try{
+			int i = 10/0;
+			System.out.println(i);
+		} catch (ArithmeticException e){
+			System.out.println("There is a error in the logic. "
+					+ "Check again.  Here is the reason: " + e.getMessage());
+			
+		}
+		System.out.println("End of program");
 	}
 	
 }

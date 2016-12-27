@@ -14,6 +14,7 @@ public class SerializableExample {
 	public static void main(String[] args) {
 		Employee empObj = new Employee(22, "Rama", "King");
 		try {
+			
 			//writeObject(empObj);
 			readObject();
 		} catch (Exception e) {
@@ -22,16 +23,22 @@ public class SerializableExample {
 	}
 	
 	static void writeObject(Employee emp) throws IOException{
-		FileOutputStream fos = new FileOutputStream("Employee.txt");
-		ObjectOutputStream ous = new ObjectOutputStream(fos);
-		ous.writeObject(emp);
-		ous.close();
+		FileOutputStream fos = new FileOutputStream("EmployeeObj.txt");
+		
+		ObjectOutputStream objectStream = new ObjectOutputStream(fos);
+		
+		objectStream.writeObject(emp);
+		objectStream.close();
 	}
 	
 	static void readObject() throws IOException, ClassNotFoundException{
-		FileInputStream fis = new FileInputStream("Employee.txt");
+		FileInputStream fis = new FileInputStream("EmployeeObj.txt");
+		
 		ObjectInputStream ois = new ObjectInputStream(fis);
-		Employee empl = (Employee) ois.readObject();
-		System.out.println("id: " + empl.getId() + " Name: " + empl.getName() /*+ " new value: " + empl.abc*/);
+		
+		Employee emp = (Employee)ois.readObject();
+		
+		System.out.println(emp.getName());
+		
 	}
 }

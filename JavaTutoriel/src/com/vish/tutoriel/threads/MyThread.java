@@ -6,9 +6,9 @@ public class MyThread extends Thread {
 	String threadName;
 	ThreadHelper th;
 	
-	MyThread(String threadName, ThreadHelper th){
+	MyThread(String threadName){
 		this.threadName = threadName;
-		this.th = th;		
+		this.th = new ThreadHelper();		
 	}
 	
 	public MyThread() {

@@ -20,13 +20,14 @@ public class JdbcCrud {
 	public static void main(String[] args) {
 		String query = "SELECT id, \"Name\", \"Dept\", \"Salary\" FROM Employee ORDER BY id ASC";
 		
-		Connection conn = connprovider.getConnection();
+		PostgresConnection connection = new PostgresConnection(); 
+		
+		Connection conn = connection.getConnection();
 		try {
-			insertEmployee();
+			//insertEmployee();
 			
-			Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(query);
-			//rs.last();
 			while(rs.next()){
 				System.out.println("\n");
 				System.out.print(rs.getInt("id"));
@@ -34,14 +35,6 @@ public class JdbcCrud {
 				System.out.print("\t"+rs.getString("Dept"));
 				System.out.println("\t"+rs.getDouble("Salary"));
 			}
-			
-			/*rs.absolute(2);
-			System.out.println("\n \n");
-			System.out.print(rs.getInt("id"));
-			System.out.print("\t"+rs.getString("Name"));
-			System.out.print("\t"+rs.getString("Dept"));
-			System.out.println("\t"+rs.getDouble("Salary"));*/
-			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -55,19 +48,22 @@ public class JdbcCrud {
 	}
 	
 	private static void insertEmployee(){
-		int id =7;
+		int id =11;
 		String name = "xyz7";
 		String dept = "Prod";
 		double sal = 15010;
-		String query = "INSERT INTO employee(\"id\",\"Name\", \"Dept\", \"Salary\") VALUES (?,?,?,?)";
+		
+		
+		String query = "INSERT INTO employee(id,Name, \"Dept\", \"Salary\") VALUES (?,?,?,?)";
+
 		Connection conn = connprovider.getConnection();
 		try {
 			PreparedStatement stmt = conn.prepareStatement(query);
-
-			stmt.setString(2, name);
-			stmt.setString(3, dept);
-			stmt.setDouble(4, sal);
-			stmt.setInt(1, id);
+			stmt.setInt(1, 10);
+			stmt.setString(2, "abc");
+			stmt.setString(3, "xyz");
+			stmt.setDouble(4, 1000.00);
+			
 			System.out.println(stmt.execute());
 			
 		} catch (SQLException e) {
