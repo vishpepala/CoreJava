@@ -1,6 +1,7 @@
 package com.vish.tutoriel.jdbc;
 
 import java.sql.Connection;
+import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,20 +18,15 @@ public class JDBCDemo {
 				"postgres", 
 				"Vish@2016");
 		
-		
-		String queryString = "SELECT * FROM employee";
-		
 		Statement stmt = con.createStatement();
 		
-		ResultSet rs = stmt.executeQuery(queryString);
+		ResultSet rs = stmt.executeQuery("SELECT * FROM employee");
 		
 		while(rs.next()){
-			System.out.print(rs.getInt(1) + " | ");
-			System.out.print(rs.getString(2) + " | ");
-			System.out.println(rs.getString(3));
+			System.out.print(rs.getInt("id") + " \t| ");
+			System.out.println(rs.getString("Name"));
 		}
 		
 		con.close();
-		
 	}
 }

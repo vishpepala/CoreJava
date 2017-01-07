@@ -7,17 +7,18 @@ public class MyThread extends Thread {
 	ThreadHelper th;
 	
 	MyThread(String threadName){
+		super();
 		this.threadName = threadName;
-		this.th = new ThreadHelper();		
+		this.th = new ThreadHelper();
 	}
 	
 	public MyThread() {
-		
+		super();
 	}
 
 	public void run(){
 		synchronized (th) {
-			th.display();	
+			th.display();
 		}
 	     System.out.println("Thread  exiting.");
 		//System.out.println(Thread.currentThread().getName());

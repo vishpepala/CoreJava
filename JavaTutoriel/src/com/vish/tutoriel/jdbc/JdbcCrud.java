@@ -18,7 +18,7 @@ public class JdbcCrud {
 	final static ConnProvider connprovider = DBConnectionFactory.getInstance("en_CA");
 	
 	public static void main(String[] args) {
-		String query = "SELECT id, \"Name\", \"Dept\", \"Salary\" FROM Employee ORDER BY id ASC";
+		String query = "SELECT * FROM Employee ORDER BY id ASC";
 		
 		PostgresConnection connection = new PostgresConnection(); 
 		
@@ -26,15 +26,20 @@ public class JdbcCrud {
 		try {
 			//insertEmployee();
 			
-			Statement stmt = conn.createStatement();
+			Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 			ResultSet rs = stmt.executeQuery(query);
-			while(rs.next()){
+			rs.afterLast();
+			
+			while(rs.previous()){
 				System.out.println("\n");
 				System.out.print(rs.getInt("id"));
 				System.out.print("\t"+rs.getString("Name"));
 				System.out.print("\t"+rs.getString("Dept"));
 				System.out.println("\t"+rs.getDouble("Salary"));
 			}
+			
+			rs.absolute(5);
+			System.out.println(rs.getString("name"));
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -47,24 +52,24 @@ public class JdbcCrud {
 		}
 	}
 	
-	private static void insertEmployee(){
+	private static void insertEmployee() throws SQLException{
 		int id =11;
-		String name = "xyz7";
+		String name = "ABCD";
 		String dept = "Prod";
 		double sal = 15010;
-		
 		
 		String query = "INSERT INTO employee(id,Name, \"Dept\", \"Salary\") VALUES (?,?,?,?)";
 
 		Connection conn = connprovider.getConnection();
 		try {
 			PreparedStatement stmt = conn.prepareStatement(query);
+			
 			stmt.setInt(1, 10);
 			stmt.setString(2, "abc");
 			stmt.setString(3, "xyz");
 			stmt.setDouble(4, 1000.00);
 			
-			System.out.println(stmt.execute());
+			stmt.execute();
 			
 		} catch (SQLException e) {
 			e.printStackTrace();

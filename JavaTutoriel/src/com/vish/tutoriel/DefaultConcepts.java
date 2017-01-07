@@ -11,44 +11,38 @@ public class DefaultConcepts {
 
 
 	public static void main(String args[]) throws IOException{
-		Scanner sc = new Scanner(System.in);
-		//int a = sc.nextLine();
-		System.out.println(sc.nextLine());
 		
 		InputStreamReader isr = new InputStreamReader(System.in);
 		//isr.read();
 		BufferedReader br = new BufferedReader(isr);
+		
 		String name = "";
 		
-		System.out.print("Name: ");
+		System.out.print("  Please enter your Name: ");
 		name = br.readLine();
-		System.out.println("Hello " + name);
-		System.out.print("Enter your identification number: ");
+		System.out.println("  Hello Mr. " + name + "! Thank you for visiting");
+		System.out.print("  Enter your identification number: ");
 		Integer idNumber = Integer.parseInt(br.readLine());
 		if(idNumber == 123456){
-			System.out.print("Success; You are Authorised");
+			System.out.print("  Success; You are Authorised. Your Balance is: " + getAvailableCash(idNumber));
 		} else {
-			System.out.println("You are not Authorised");
-			System.out.print("Enter your identification number(2 nd attempt): ");
+			System.out.println("  You are not Authorised");
+			System.out.print("  Enter your identification number(2nd attempt): ");
 			idNumber = Integer.parseInt(br.readLine());
 			if(idNumber == 123456){
-				System.out.println("Success; You are Authorised");
+				System.out.println("  Success; You are Authorised. Your Balance is: " + getAvailableCash(idNumber));
 			} else {
-				System.out.println("You are not Authorised");
-				System.out.print("Enter your identification number(3 nd attempt): ");
+				System.out.println("  You are not Authorised");
+				System.out.print("  Enter your identification number(final attempt): ");
 				idNumber = Integer.parseInt(br.readLine());
 				if(idNumber == 123456){
-					System.out.println("You are Authorised");
+					System.out.println("  You are Authorised");
 				} else {
-					System.out.println("You are not Authorised; Your account has been locked");
+					System.out.println("  You are not Authorised; Your account has been locked. "
+							+ "Call customer care to unlock.");
 				}
 			}
 		}
-		
-		
-		
-		Random r = new Random(8522);
-	    System.out.println(10000 + r.nextInt(20000));
 	}
 	
 /*	public static void main(String[] args) {
@@ -71,6 +65,10 @@ public class DefaultConcepts {
 		} else {
 			System.out.print("You are not Authorised");
 		}
+	}
+	
+	private static int getAvailableCash(int accnumber){
+		return 14526;
 	}
 	
 	/*public static void main( String[] args ){

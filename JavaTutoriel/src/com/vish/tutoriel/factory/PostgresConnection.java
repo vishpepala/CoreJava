@@ -15,6 +15,7 @@ public class PostgresConnection implements ConnProvider {
 			
 			// Getting Connection with Driver class directly
 			/*Driver driver = new org.postgresql.Driver();
+			
 			Properties prop = new Properties();
 			prop.put("user", "postgres");
 			prop.put("password", "Vish@2016");

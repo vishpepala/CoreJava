@@ -10,6 +10,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.Vector;
+import java.util.Map;
 
 /**
  * add(), AddFirst(), addLast(), removeFirst(),removeLast(), 
@@ -19,49 +21,37 @@ import java.util.TreeSet;
  *
  */
 
-
-
 public class LinkedListExample {
 	
 	public static void main(String[] args) throws InterruptedException {
+		HashMap<String, Long> contacts = new HashMap<>();
+		contacts.put("Vish", 9080163676l);
+		contacts.put("Vish1", 9080163674l);
+		contacts.put("Vish2", 9080163677l);
+		contacts.put("Vish3", 9080163678l);
 		
-		Employee employee  = new Employee(26, "Gopal","Dev");
-		Employee employee1 = new Employee(26, "gopal","Dev");
-		Employee employee2 = new Employee(27, "Krish","Dev");
-		Employee employee3 = new Employee(28, "Rajan","QA");
-		Employee employee4 = new Employee();
-		Employee employee5 = new Employee();
+		ArrayList<Long> mobileNumbers = new ArrayList<>();
+		mobileNumbers.add(9080163676l);
+		mobileNumbers.add(9080163674l);
+		mobileNumbers.add(9080163675l);
+		mobileNumbers.add(9080163677l);
+		mobileNumbers.add(9080163670l);
 		
-		HashSet<Employee> stringSet = new HashSet<>();
-		
-		stringSet.add(employee);
-		stringSet.add(employee1);
-		stringSet.add(employee2);
-		stringSet.add(employee3);
-		stringSet.add(employee4);
-		stringSet.add(employee5);
-		
-		
-		
-		for (Employee string : stringSet) {
-			System.out.println(string);
-		}
-		
-		
+		mobileNumbers.get(4);
 		
  	}
 	
-	private static List<Employee> getEmpList(){
+	private static Set<Employee> getEmpList(){
 		Employee employee  = new Employee(26, "Gopal","Dev");
 		Employee employee1 = new Employee(26, "Sopal","Dev");
 		Employee employee2 = new Employee(27, "Krish","Dev");
 		Employee employee3 = new Employee(28, "Rajan","QA");
 		
-		ArrayList<Employee> empList = new ArrayList<>();
+		Set<Employee> empList = new HashSet<>();
 		empList.add(employee);
 		empList.add(employee1);
 		empList.add(employee2);
-		empList.add(employee2);
+		empList.add(employee3);
 		
 		return empList;
 	}
